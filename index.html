@@ -1,158 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Under Construction | Fire & Rescue</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/dist/css/all.min.css">
-    <style>
-        :root {
-            --fire-red: #d32f2f;
-            --rescue-blue: #0d1b2a;
-            --white: #ffffff;
-            --accent-yellow: #fbc02d;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>929 Fire Rescue Volunteer</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-        body {
-            background-color: var(--rescue-blue);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            overflow: hidden;
-            text-align: center;
-        }
+body{
+    background:#0a1a2f;
+    color:white;
+    line-height:1.6;
+}
 
-        /* Background Fire Effect */
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(13, 27, 42, 0.9), rgba(211, 47, 47, 0.2));
-            z-index: -1;
-        }
+/* HEADER */
+header{
+    background:linear-gradient(135deg,#8b0000,#001f4d);
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+}
 
-        .container {
-            padding: 20px;
-            max-width: 600px;
-            width: 90%;
-        }
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
 
-        .icon-box {
-            font-size: 80px;
-            color: var(--fire-red);
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
-        }
+.logo-area img{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:2px solid white;
+}
 
-        h1 {
-            font-size: 3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-            border-bottom: 4px solid var(--fire-red);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
+.logo-area h1{
+    font-size:1.5rem;
+}
 
-        p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #bdc3c7;
-        }
+/* NAV */
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+    font-weight:bold;
+}
 
-        .status-bar {
-            background: #1b263b;
-            border-radius: 50px;
-            height: 25px;
-            width: 100%;
-            margin-bottom: 40px;
-            border: 2px solid var(--fire-red);
-            overflow: hidden;
-            position: relative;
-        }
+nav a:hover{
+    text-decoration:underline;
+}
 
-        .progress {
-            background: repeating-linear-gradient(
-                45deg,
-                var(--fire-red),
-                var(--fire-red) 10px,
-                #b71c1c 10px,
-                #b71c1c 20px
-            );
-            width: 75%; /* Set your progress here */
-            height: 100%;
-            animation: slide 2s linear infinite;
-        }
+/* HERO */
+.hero{
+    background:url("https://images.unsplash.com/photo-1581091870627-3d8c79f1b9b7?auto=format&fit=crop&w=1200&q=80") center/cover;
+    min-height:70vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:40px;
+}
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 1.5rem;
-        }
+.hero-content{
+    background:rgba(0,0,0,0.6);
+    padding:40px;
+    border-radius:10px;
+}
 
-        .contact-info a {
-            color: var(--white);
-            transition: 0.3s;
-        }
+.hero h2{
+    font-size:2.5rem;
+    color:#ff4c4c;
+}
 
-        .contact-info a:hover {
-            color: var(--accent-yellow);
-            transform: scale(1.2);
-        }
+.hero p{
+    margin-top:15px;
+    font-size:1.1rem;
+}
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    background:#ff0000;
+    color:white;
+    padding:12px 25px;
+    border-radius:30px;
+    text-decoration:none;
+    transition:0.3s;
+}
 
-        @keyframes slide {
-            from { background-position: 0 0; }
-            to { background-position: 40px 0; }
-        }
+.btn:hover{
+    background:#cc0000;
+}
 
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            h1 { font-size: 2rem; }
-            p { font-size: 1rem; }
-            .icon-box { font-size: 60px; }
-        }
-    </style>
+/* SECTIONS */
+section{
+    padding:60px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+section h3{
+    text-align:center;
+    margin-bottom:40px;
+    color:#ff4c4c;
+    font-size:2rem;
+}
+
+/* ABOUT */
+.about{
+    text-align:center;
+}
+
+/* SERVICES */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#112b4d;
+    padding:25px;
+    border-radius:10px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h4{
+    color:#ff4c4c;
+    margin-bottom:10px;
+}
+
+/* CONTACT */
+.contact form{
+    max-width:500px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.contact input, .contact textarea{
+    padding:12px;
+    border-radius:5px;
+    border:none;
+    outline:none;
+}
+
+.contact button{
+    padding:12px;
+    background:#ff0000;
+    border:none;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.contact button:hover{
+    background:#cc0000;
+}
+
+/* FOOTER */
+footer{
+    background:#001f4d;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+    .hero h2{
+        font-size:1.8rem;
+    }
+
+    nav{
+        margin-top:10px;
+        width:100%;
+        text-align:center;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <div class="overlay"></div>
+<header>
+    <div class="logo-area">
+        <!-- Placeholder logo (replace later) -->
+        <img src="https://via.placeholder.com/150/FF0000/00008B?text=929+Logo" alt="Logo">
+        <h1>929 Fire Rescue Volunteer</h1>
+    </div>
 
-    <div class="container">
-        <div class="icon-box">
-            <i class="fas fa-fire-extinguisher"></i>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+    <div class="hero-content">
+        <h2>Serving the Community with Courage</h2>
+        <p>Dedicated volunteer fire rescue team providing emergency response, safety, and support.</p>
+        <a href="#contact" class="btn">Join Our Team</a>
+    </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+    <h3>About Us</h3>
+    <p>
+        The 929 Fire Rescue Volunteer is a community-based emergency response group dedicated to fire suppression, 
+        rescue operations, disaster response, and public safety education.  
+        Our volunteers are trained to act quickly and professionally during emergencies.
+    </p>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <h3>Our Services</h3>
+
+    <div class="services">
+        <div class="card">
+            <h4>Fire Emergency Response</h4>
+            <p>Immediate action during fire incidents to protect lives and property.</p>
         </div>
-        
-        <h1>Under Construction</h1>
-        <p>Our team is currently responding to a digital emergency. We are building a site that's fire-proof and rescue-ready. Stay tuned!</p>
 
-        <div class="status-bar">
-            <div class="progress"></div>
+        <div class="card">
+            <h4>Rescue Operations</h4>
+            <p>Helping victims during accidents, floods, and disasters.</p>
         </div>
 
-        <div class="contact-info">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fas fa-envelope"></i></a>
-            <a href="#"><i class="fas fa-phone-alt"></i></a>
+        <div class="card">
+            <h4>Community Training</h4>
+            <p>Fire safety seminars and emergency preparedness programs.</p>
+        </div>
+
+        <div class="card">
+            <h4>Radio Communication</h4>
+            <p>Coordinated emergency communications for fast response.</p>
         </div>
     </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h3>Contact Us</h3>
+
+    <form onsubmit="sendMessage(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 929 Fire Rescue Volunteer | All Rights Reserved</p>
+</footer>
+
+<script>
+function sendMessage(e){
+    e.preventDefault();
+    alert("Thank you for contacting 929 Fire Rescue Volunteer!");
+}
+</script>
 
 </body>
 </html>
