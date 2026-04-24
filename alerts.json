@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "system_name": "929 Alerts Dispatch System",
+    "version": "1.12",
+    "source": "929-API/Drin Wx",
+    "timezone": "Asia/Manila",
+    "description": "Real-time alerts monitoring and dispatch system."
+  },
+
+  "fire_alerts": [
+
+    {
+      "alert_id": "929-CMD-001",
+      "alert_code": "10-70",
+      "alert_type": "Fire Alert",
+      "location": "Blk 12 Lot 5, Brgy. Malusak, Santa Rosa, Laguna",
+      "involved": "Grassfire",
+      "status": "F.U.C",
+      "date_time": "2026-04-24T14:32:00+08:00",
+      "notes": "N/A"
+    },
+    {
+      "alert_id": "929-CMD-002",
+      "alert_code": "10-70",
+      "alert_type": "Fire Alert",
+      "location": "National Highway, Brgy. Balibago, Santa Rosa, Laguna",
+      "involved": "Grassfire",
+      "status": "1st Alarm",
+      "date_time": "2026-04-24T16:05:00+08:00",
+      "notes": "N/A"
+    }
+
+
+
+
+
+
+
+  ]
+}
