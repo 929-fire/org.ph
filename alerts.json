@@ -6,9 +6,7 @@
     "timezone": "Asia/Manila",
     "description": "Real-time alerts monitoring and dispatch system."
   },
-
   "fire_alerts": [
-
     {
       "alert_id": "929-CMD-001",
       "alert_code": "10-70",
@@ -18,7 +16,19 @@
       "status": "For Verification",
       "date_time": "2026-04-24T01:13:00AM",
       "notes": "N/A"
+    },
+    {
+      "alert_id": "929-CMD-002",
+      "alert_code": "10-50",
+      "alert_type": "Vehicle Accident",
+      "location": "197 Wilson St, Santa Lucia, San Juan City, 1500 Metro Manila.",
+      "involved": "2 Motor Vehicle Accident",
+      "status": "Positive",
+      "date_time": "2026-04-24T01:33:00AM",
+      "notes": "On Going 911"
     }
+
+
 
 
 
