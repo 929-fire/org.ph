@@ -48,56 +48,6 @@
       "status": "1st Alarm",
       "date_time": "2026-04-24T04:32:00PM",
       "notes": "N/A"
-    },
-    {
-      "alert_id": "929-CMD-005",
-      "alert_code": "10-70",
-      "alert_type": "Fire Alert",
-      "location": "National Highway, Brgy. Balibago, Santa Rosa, Laguna",
-      "involved": "Grassfire",
-      "status": "1st Alarm",
-      "date_time": "2026-04-24T04:32:00PM",
-      "notes": "N/A"
-    },
-    {
-      "alert_id": "929-CMD-006",
-      "alert_code": "10-70",
-      "alert_type": "Fire Alert",
-      "location": "National Highway, Brgy. Balibago, Santa Rosa, Laguna",
-      "involved": "Grassfire",
-      "status": "1st Alarm",
-      "date_time": "2026-04-24T04:32:00PM",
-      "notes": "N/A"
-    },
-    {
-      "alert_id": "929-CMD-006",
-      "alert_code": "10-70",
-      "alert_type": "Fire Alert",
-      "location": "National Highway, Brgy. Balibago, Santa Rosa, Laguna",
-      "involved": "Grassfire",
-      "status": "1st Alarm",
-      "date_time": "2026-04-24T04:32:00PM",
-      "notes": "N/A"
-    },
-    {
-      "alert_id": "929-CMD-007",
-      "alert_code": "10-70",
-      "alert_type": "Fire Alert",
-      "location": "National Highway, Brgy. Balibago, Santa Rosa, Laguna",
-      "involved": "Grassfire",
-      "status": "1st Alarm",
-      "date_time": "2026-04-24T04:32:00PM",
-      "notes": "N/A"
-    },
-    {
-      "alert_id": "929-CMD-008",
-      "alert_code": "10-70",
-      "alert_type": "Fire Alert",
-      "location": "National Highway, Brgy. Balibago, Santa Rosa, Laguna",
-      "involved": "Grassfire",
-      "status": "1st Alarm",
-      "date_time": "2026-04-24T04:32:00PM",
-      "notes": "N/A"
     }
 
 
