@@ -13,23 +13,12 @@
       "alert_id": "929-CMD-001",
       "alert_code": "10-70",
       "alert_type": "Fire Alert",
-      "location": "Blk 12 Lot 5, Brgy. Malusak, Santa Rosa, Laguna",
-      "involved": "Grassfire",
-      "status": "F.U.C",
-      "date_time": "2026-04-24T04:32:00PM",
-      "notes": "N/A"
-    },
-    {
-      "alert_id": "929-CMD-002",
-      "alert_code": "10-70",
-      "alert_type": "Fire Alert",
-      "location": "National Highway, Brgy. Balibago, Santa Rosa, Laguna",
-      "involved": "Grassfire",
-      "status": "2st Alarm",
-      "date_time": "2026-04-24T04:32:00PM",
+      "location": "9123 Narra St, Barangay Guadalupe, Makati City, 1211 Metro Manila",
+      "involved": "N/A",
+      "status": "For Verification",
+      "date_time": "2026-04-24T01:13:00AM",
       "notes": "N/A"
     }
-
 
 
 
