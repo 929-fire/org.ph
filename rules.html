@@ -2,386 +2,865 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>929 Fire & Rescue Volunteer | Under Construction</title>
-
-  <!-- Favicon -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rules & Regulations - 929 Fire and Rescue Volunteer</title>
   <link rel="icon" type="image/png" href="929.png.png">
   <link rel="apple-touch-icon" href="929.png.png">
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-
-    :root{
-      --primary-red:#ff2a2a;
-      --dark-red:#5d0000;
-      --glass-bg:rgba(255,255,255,0.08);
-      --glass-border:rgba(255,255,255,0.15);
-      --text-light:#f5f5f5;
+    :root {
+      --primary-red: #ff2a2a;
+      --dark-red: #6d0000;
+      --bg-gradient: linear-gradient(135deg, #420000 0%, #1b0000 100%);
+      --card-bg: rgba(255, 255, 255, 0.07);
+      --glass-border: rgba(255, 255, 255, 0.15);
     }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      /* Background Image configuration */
+      background: rgba(0,0,0, 0.85) url('929.png'); 
+      background-blend-mode: darken;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: white;
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
-    html{
-      scroll-behavior:smooth;
+    /* --- NAVIGATION --- */
+    .navbar {
+      width: 100%;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #800000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     }
 
-    body{
-      font-family:'Montserrat',sans-serif;
-      min-height:100vh;
-      overflow-x:hidden;
-      color:white;
+    .logo-area { display: flex; align-items: center; gap: 5px; }
+    .logo-area img { width: 50px; height: 50px; object-fit: contain; }
+    .logo-title h1 { font-size: 14px; font-weight: 800; letter-spacing: 0.9px; }
+    .logo-title span { font-size: 0.7rem; opacity: 0.8; display: block; text-transform: uppercase; }
 
-      background:
-      linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.88)),
-      url('929.png');
+    .menu { display: flex; gap: 15px; }
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+    .menu a:hover, .menu a.active { background: var(--primary-red); transform: translateY(-2px); }
 
-      background-position:center;
-      background-size:cover;
-      background-repeat:no-repeat;
-      background-attachment:fixed;
+    .menu-toggle { display: none; font-size: 28px; cursor: pointer; color: white; }
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      padding:25px;
-      position:relative;
+    /* --- RULES CONTAINER HERO STYLE --- */
+    .rules-hero {
+      padding: 50px 5% 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    /* Animated Glow Effects */
-    body::before,
-    body::after{
-      content:'';
-      position:absolute;
-      border-radius:50%;
-      filter:blur(20px);
-      z-index:0;
-      animation:pulse 8s infinite ease-in-out;
+    .rules-hero h2 {
+      font-size: clamp(1.8rem, 6vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      color: #fff;
     }
 
-    body::before{
-      width:500px;
-      height:500px;
-      background:rgba(255,42,42,0.18);
-      top:-180px;
-      right:-120px;
+    .rules-hero p {
+      font-size: 1rem;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto 25px;
+      color: #eee;
     }
 
-    body::after{
-      width:450px;
-      height:450px;
-      background:rgba(255,0,0,0.12);
-      bottom:-160px;
-      left:-120px;
+    /* --- RULES LAYOUT SECTION --- */
+    .rules-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 5% 60px;
     }
 
-    @keyframes pulse{
-      0%{
-        transform:scale(1);
-        opacity:0.7;
+    .section-title { 
+      font-size: 1.2rem; 
+      margin-bottom: 25px; 
+      font-weight: 800; 
+      color: #fff;
+      text-transform: uppercase;
+      border-left: 5px solid var(--primary-red);
+      padding-left: 15px;
+    }
+
+    /* Accordion Styles */
+    .accordion-item {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      margin-bottom: 15px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header {
+      padding: 18px 25px;
+      background: rgba(128, 0, 0, 0.4);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background: rgba(128, 0, 0, 0.7);
+    }
+
+    .accordion-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    .accordion-icon {
+      font-size: 1rem;
+      transition: transform 0.3s ease;
+      color: white;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 0 25px;
+    }
+
+    .accordion-item.open .accordion-content {
+      max-height: 1000px; /* high values to accommodate multi-sections */
+      padding: 20px 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .accordion-item.open .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .section-block {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .section-block:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .section-block h4 {
+      font-size: 0.95rem;
+      color: var(--primary-red);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .section-block p {
+      font-size: 0.9rem;
+      color: #ddd;
+      text-align: justify;
+    }
+
+    /* --- DISCIPLINARY & OFFENSES CARDS --- */
+    .discipline-container {
+      margin-top: 45px;
+    }
+
+    .offense-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .offense-card {
+      background: var(--card-bg);
+      border: 1px solid var(--glass-border);
+      border-top: 4px solid var(--primary-red);
+      border-radius: 12px;
+      padding: 25px;
+    }
+
+    .offense-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .offense-card ul {
+      list-style-type: none;
+    }
+
+    .offense-card li {
+      font-size: 0.9rem;
+      color: #ddd;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 15px;
+    }
+
+    .offense-card li::before {
+      content: "•";
+      color: var(--primary-red);
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+
+    .severe-box {
+      background: rgba(255, 42, 42, 0.08);
+      border: 1px solid var(--primary-red);
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+
+    .severe-box h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary-red);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .severe-box p {
+      font-size: 0.95rem;
+      color: #eee;
+      margin-bottom: 15px;
+    }
+
+    .severe-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 12px;
+    }
+
+    .severe-item {
+      font-size: 0.9rem;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px 15px;
+      border-radius: 6px;
+      border-left: 3px solid var(--primary-red);
+    }
+
+    .sign-meta-block {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      padding: 25px;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+
+    .sign-meta-block p {
+      margin-bottom: 10px;
+    }
+
+    /* --- FOOTER --- */
+    .footer { background: #110000; padding: 60px 5% 30px; border-top: 2px solid var(--glass-border); }
+    .footer-bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .info-grid h4 { color: var(--primary-white); margin-bottom: 12px; font-size: 1.1rem; }
+    .info-grid p { font-size: 0.9rem; opacity: 0.8; }
+    .social-legal { border-left: 1px solid var(--glass-border); padding-left: 30px; }
+    .fb-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; font-weight: 700; margin-bottom: 20px; }
+    .fb-link img { width: 30px; }
+
+    /* --- RESPONSIVE ADJUSTMENTS --- */
+    @media (max-width: 1024px) {
+      .footer-bottom-grid { grid-template-columns: 1fr; gap: 30px; }
+      .social-legal { border-left: none; border-top: 1px solid var(--glass-border); padding: 30px 0 0; }
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 10px 20px; }
+      .menu { 
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 70px; left: 0; width: 100%; 
+        background: #800000; 
+        padding: 20px; 
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
       }
-
-      50%{
-        transform:scale(1.1);
-        opacity:1;
-      }
-
-      100%{
-        transform:scale(1);
-        opacity:0.7;
-      }
+      .menu.active { display: flex; }
+      .menu-toggle { display: block; }
+      .info-grid { grid-template-columns: 1fr; }
     }
 
-    /* Main Container */
-    .construction-container{
-      width:100%;
-      max-width:900px;
-
-      background:var(--glass-bg);
-
-      border:1px solid var(--glass-border);
-
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-
-      border-radius:30px;
-
-      padding:60px 50px;
-
-      text-align:center;
-
-      position:relative;
-      z-index:2;
-
-      box-shadow:
-      0 10px 40px rgba(0,0,0,0.45),
-      0 0 25px rgba(255,42,42,0.15);
-    }
-
-    /* Logo */
-    .logo{
-      width:95px;
-      height:95px;
-
-      object-fit:contain;
-
-      margin-bottom:22px;
-
-      animation:float 4s ease-in-out infinite;
-
-      filter:drop-shadow(0 0 15px rgba(255,42,42,0.35));
-    }
-
-    @keyframes float{
-      0%{
-        transform:translateY(0px);
-      }
-
-      50%{
-        transform:translateY(-8px);
-      }
-
-      100%{
-        transform:translateY(0px);
-      }
-    }
-
-    /* Small Heading */
-    .small-title{
-      font-size:0.9rem;
-      font-weight:700;
-      letter-spacing:4px;
-      text-transform:uppercase;
-
-      color:#ffb8b8;
-
-      margin-bottom:18px;
-    }
-
-    /* Main Title */
-    .main-title{
-      font-size:clamp(2.5rem, 7vw, 5.5rem);
-      font-weight:900;
-      line-height:1.05;
-
-      text-transform:uppercase;
-
-      margin-bottom:22px;
-
-      background:linear-gradient(to bottom,#ffffff,#ffc9c9);
-
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    /* Divider */
-    .divider{
-      width:120px;
-      height:5px;
-
-      margin:0 auto 35px;
-
-      border-radius:50px;
-
-      background:var(--primary-red);
-
-      box-shadow:0 0 15px rgba(255,42,42,0.7);
-    }
-
-    /* Description */
-    .description{
-      max-width:720px;
-
-      margin:auto;
-
-      color:var(--text-light);
-
-      font-size:1rem;
-      line-height:1.9;
-
-      opacity:0.92;
-    }
-
-    .description strong{
-      color:#ffffff;
-      font-weight:800;
-    }
-
-    /* Buttons */
-    .button-area{
-      margin-top:42px;
-    }
-
-    .home-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-
-      gap:12px;
-
-      text-decoration:none;
-
-      color:white;
-
-      background:linear-gradient(135deg, #ff2a2a, #8b0000);
-
-      padding:16px 34px;
-
-      border-radius:60px;
-
-      font-size:0.95rem;
-      font-weight:800;
-
-      transition:0.3s ease;
-
-      box-shadow:0 12px 24px rgba(255,42,42,0.28);
-    }
-
-    .home-btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 18px 35px rgba(255,42,42,0.42);
-    }
-
-    .arrow{
-      font-size:1.1rem;
-    }
-
-    /* Footer */
-    .footer-note{
-      margin-top:38px;
-
-      font-size:0.82rem;
-
-      opacity:0.65;
-
-      line-height:1.8;
-    }
-
-    /* MOBILE RESPONSIVE */
-    @media screen and (max-width:768px){
-
-      body{
-        padding:18px;
-        align-items:center;
-      }
-
-      .construction-container{
-        padding:45px 25px;
-        border-radius:24px;
-      }
-
-      .logo{
-        width:80px;
-        height:80px;
-      }
-
-      .small-title{
-        font-size:0.72rem;
-        letter-spacing:2.5px;
-      }
-
-      .main-title{
-        font-size:2.6rem;
-      }
-
-      .description{
-        font-size:0.93rem;
-        line-height:1.8;
-      }
-
-      .status-box{
-        width:100%;
-        font-size:0.8rem;
-        padding:14px 18px;
-      }
-
-      .home-btn{
-        width:100%;
-        padding:15px 20px;
-        font-size:0.9rem;
-      }
-
-      .footer-note{
-        font-size:0.72rem;
-      }
-    }
-
-    /* SMALL PHONES */
-    @media screen and (max-width:480px){
-
-      .construction-container{
-        padding:40px 20px;
-      }
-
-      .main-title{
-        font-size:2.2rem;
-      }
-
-      .description{
-        font-size:0.88rem;
-      }
-
-      .small-title{
-        line-height:1.6;
-      }
-    }
-
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1b0000; }
+    ::-webkit-scrollbar-thumb { background: var(--primary-red); border-radius: 10px; }
   </style>
 </head>
-
 <body>
 
-  <div class="construction-container">
+  <nav class="navbar">
+    <div class="logo-area">
+      <img src="929.png.png" alt="929 Logo">
+      <div class="logo-title">
+        <h1>929 FIRE AND RESCUE VOLUNTEER</h1>
+        <span>Save Lives and Properties</span>
+      </div>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu" id="navMenu">
+      <a href="https://929-fire.github.io/org.ph">HOME</a>
+      <a href="https://929-fire.github.io/org.ph/officer">OFFICERS</a>
+      <a href="#rules" class="active">RULES & REGULATION</a>
+      <a href="https://929-fire.github.io/org.ph/about">ABOUT</a>
+    </div>
+  </nav>
 
-    <!-- Logo -->
-    <img src="929.png.png" alt="929 Logo" class="logo">
+  <section class="rules-hero" id="rules">
+    <h2>RULES & REGULATION</h2>
+    <p>Rules and Regulations of the 929 Fire and Rescue Volunteers — created to maintain discipline, unity, respect, responsibility, and proper coordination within the organization and group, ensuring professional and dedicated volunteer service to the community.</p>
+  </section>
 
-    <!-- Small Title -->
-    <div class="small-title">
-      929 Fire & Rescue Volunteer
+  <main class="rules-section">
+    <h2 class="section-title">Core Articles</h2>
+    
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h3>Article I – Participation</h3>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="section-block">
+          <h4>Section 1</h4>
+          <p>Members are expected to arrive on time for all meetings, deployments, and call‑outs to ensure smooth coordination, proper flow of activities, and the safety of everyone involved.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 2</h4>
+          <p>Members must inform the officers ahead of time if they will be absent or running late so plans can be adjusted and responsibilities can be reassigned properly.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 3</h4>
+          <p>Members are encouraged to take part actively in all training and official activities to strengthen teamwork of the group, improve skills, and maintain readiness during emergency situations.</p>
+          <br>
+          <br>
+        </div>
+      </div>
     </div>
 
-    <!-- Main Title -->
-    <h1 class="main-title">
-      Under Construction
-    </h1>
-
-    <!-- Divider -->
-    <div class="divider"></div>
-
-    <!-- Description -->
-    <p class="description">
-      This website is currently undergoing improvements and system upgrades to provide a more professional, reliable, and better experience for everyone.
-      <br><br>
-      Our team is working behind the scenes to improve features, performance, accessibility, and overall functionality for the community.
-      <br><br>
-      <strong>The official website will be available soon.</strong>
-      Thank you for your patience, support, and understanding while we complete the development process.
-    </p>
-
-    <!-- Button -->
-    <div class="button-area">
-      <a href="https://929-fire.github.io/org.ph/" class="home-btn">
-        <span class="arrow">←</span>
-        BACK TO HOME PAGE
-      </a>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h3>Article II – Dress Code, Proper Gear and Equipments</h3>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="section-block">
+          <h4>Section 1</h4>
+          <p>The uniform of 929 must always be worn during operations, activities, and other group events. However, if the uniform is dirty or if a member does not have the group uniform, it is required to wear a black T-shirt, pants, and shoes to maintain a formal appearance.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 2</h4>
+          <p>All members must purchase or acquire their official uniforms, and they are required to have a valid uniform for a duration of one year. If they do not possess one, it will be considered their first offense of violation.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 3</h4>
+          <p>All members must purchase or acquire their official IDs of the group, and they are required to have a valid ID for a duration of 5 months. If they do not possess one, it will be considered their first offense of violation.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 4</h4>
+          <p>Members are encouraged to use their uniforms for various activities outside the group, except for casual outings, social gatherings, drinking events, or showing off to others. It should be worn appropriately.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 5</h4>
+          <p>Each member must have their own personal protective equipment (PPE) for various purposes. BORROWING IS PROHIBITED (Article 6). Members should not wear any equipment belonging to others, especially in public, unless permission has been granted.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 6</h4>
+          <p>Group/Non-Group equipment responsible for ensuring each item is used with care, protected from damage, and maintained so it remains ready for operations or activity. Ensure that all personal and team equipment is well-maintained to guarantee proper functionality during emergencies and events.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 7</h4>
+          <p>Return borrowed items after use to help keep everything organized, available, and in good condition for the next team member who may urgently need them.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 8</h4>
+          <p>No unauthorized use of IDs, uniforms, radio frequency, or vehicles to maintain safety, protect the group’s identity, and prevent misuse that could affect ongoing work or operations.</p>
+          <br>
+          <br>
+        </div>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <div class="footer-note">
-      © 2026 929 Fire & Rescue Volunteer <br>
-      Save Lives and Properties
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h3>Article III – Safety Protocols</h3>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="section-block">
+          <h4>Section 1</h4>
+          <p> Follow all safety procedures during every activity and operation to protect yourself and others at all times.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 2</h4>
+          <p>Do not perform any task without clear instruction, proper guidance, or the presence of an authorized supervisor or ground commander.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 3</h4>
+          <p>Report any safety concern or potential danger immediately so the proper steps can be taken.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 4</h4>
+          <p>Entering in an area without proper protective equipment and training is strictly prohibited. The same on Article 5, Section 2 when giving first aid to someone with an external or internal fracture or wound. Always ask for permission before touching or helping the patient.</p>
+          <br>
+          <br>
+        </div>
+      </div>
     </div>
 
-  </div>
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h3>Article IV – Communication</h3>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="section-block">
+          <h4>Section 1</h4>
+          <p>GC is strictly for official announcements and coordination. It serves as the main space for sharing clear instructions, schedules, and important reminders to keep everyone aligned.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 2</h4>
+          <p>Unrelated chats, spam, and unnecessary replies are discouraged to maintain order in the group. This helps ensure that important messages remain easy to find and understand.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 3</h4>
+          <p>Prompt responses to roll calls and important updates are expected, as these messages help track readiness, availability, and immediate actions when needed.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 4</h4>
+          <p>Members are not allowed to leave the official group chat without informing or securing permission from the officers or administration. Leaving the GC without valid reason may be considered a violation of group coordination and communication protocols.</p>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <div class="accordion-header" onclick="toggleAccordion(this)">
+        <h3>Article V – Professionalism, Confidentiality and Discipline</h3>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="section-block">
+          <h4>Section 1</h4>
+          <p>Handle all information, photos, and reports with great care. Do not share anything outside the group without clear approval or permission.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 2</h4>
+          <p>Protect the personal details of members and anyone involved in an incident to ensure their safety and dignity.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 3</h4>
+          <p>Every member is expected to follow the group rules to keep duties and operations running smoothly.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 4</h4>
+          <p>Show respect at all times, both in main GC (Group Chat) or other GC by organising the group and on-ground by treating every member with kindness and understanding.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 5</h4>
+          <p>No offensive, rude, or unnecessary messages, allowing discussions to remain professional and welcoming.</p>
+        </div>
+        <div class="section-block">
+          <h4>Section 6</h4>
+          <p>Follow the chain of command, supervisor and respect officer instructions so tasks are carried out smoothly, safely, and without confusion. The decisions of officers must be acknowledged and followed as a sign of respect for leadership.</p>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <div class="discipline-container">
+      <h2 class="section-title">Offenses & Disciplinary Actions</h2>
+      <p>Any member or officer who violates any provision, section, or requirement stated in the Articles above shall be subject to disciplinary action. <strong>The group recognizes three (3) levels of offenses.</strong></p>
+      <br>
+
+      <div class="offense-grid">
+        <div class="offense-card">
+          <h3>First Offense: Verbal/Written</h3>
+          <ul>
+            <li>Official letter warning issued by the 929 System Administration containing full facts and supporting evidence.</li>
+            <li>The member is required to submit a written explanation or verbal statement within fifteen (15) days.</li>
+            <li>Failure to respond within the given period shall automatically elevate the case to the Second Offense.</li>
+          </ul>
+        </div>
+
+        <div class="offense-card">
+          <h3>Second Offense: Investigation</h3>
+          <ul>
+            <li>Applies if the member remains unresponsive through social media or digital platforms to contact.</li>
+            <li>The member shall be added to an official disciplinary GC for formal evaluation.</li>
+            <li>If uncooperative, authorized officers may conduct an unannounced visitation to the member's residence.</li>
+            <li>If the member is unavailable, refuses to appear, or continues to avoid communication, the case shall proceed to the Third Offense.</li>
+         </ul>
+        </div>
+
+        <div class="offense-card">
+          <h3>Third Offense: Final Action</h3>
+          <ul>
+            <li>Applies if the member continuously ignores warnings, official letters, and residential visitations.</li>
+            <li>The Chief of Administrative Officer and the Group President shall determine the final penalty.</li>
+            <li><strong>The highest penalty under this level is removal or expulsion from the group.</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="severe-box">
+        <h3>Severe Violations & Automatic Expulsion</h3>
+        <p>Any member who commits major offenses that endanger the group's reputation, safety, or public standing will face immediate permanent expulsion without undergoing the standard three-offense warning system.</p>
+        <div class="severe-grid">
+          <div class="severe-item">Physical assault or violence</div>
+          <div class="severe-item">Serious operational misconduct</div>
+          <div class="severe-item">Criminal activities and acts</div>
+          <div class="severe-item">Theft, robbery, or unlawful actions</div>
+          <div class="severe-item">Severe group reputation damage</div>
+          <div class="severe-item">Extreme misconduct / Dangerous behaviors</div>
+        </div>
+      </div>
+
+      <div class="sign-meta-block">
+        <p>• <b>Record Validity:</b> All recorded offenses shall remain active for a period of one (1) year. A member must maintain a violation-free record for 1 solid year to completely reset or clear their previous offense history.</p>
+        <p>• <b>Proposals:</b> Members and officers are allowed to submit additional rules provided they contain a comprehensive explanation, purpose, facts, evidence, and target benefits for evaluation.</p>
+        <p style="margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-style: italic; opacity: 0.8;">
+          Prepared by: Tamayo Aldrin B. (Chief of Administrative Officer)<br>
+          Approved by: Aliant Anthony M. Alpasan (Fire Chief and Group President)<br>
+          Final approval granted on this 13th day of May, year 2026.
+          <br>
+          <br>
+          <b>FILE: https://tinyurl.com/929-rules</b>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-bottom-grid">
+      <div class="info-grid">
+        <div>
+          <h4>Our Mission</h4>
+          <p>To serve our community with the highest level of care, protection, and education by providing timely and efficient emergency response and proactive safety awareness.</p>
+        </div>
+        <div>
+          <h4>Our Vision</h4>
+          <p>To be a leading and trusted emergency service provider in the Philippines, driven by innovation, dedication, and excellence in public safety and education.</p>
+        </div>
+      </div>
+      <div class="social-legal">
+        <a href="https://facebook.com/929Volunteers" class="fb-link">
+          <img src="facebook.png" alt="FB"> 929 FIRE AND RESCUE VOLUNTEER
+        </a>
+        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; All content is in the public domain unless otherwise stated.
+           <br> <br> All rights reserved TM, Inc. copyright @2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      
+      // Isasara ang ibang bukas na accordion items (Optional, for clean experience)
+      document.querySelectorAll('.accordion-item').forEach(el => {
+        if (el !== item) {
+          el.classList.remove('open');
+          el.querySelector('.accordion-content').style.maxHeight = null;
+        }
+      });
+
+      // I-toggle ang kasalukuyang pinindot na accordion
+      item.classList.toggle('open');
+      const content = item.querySelector('.accordion-content');
+      
+      if (item.classList.contains('open')) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = null;
+      }
+    }
+  </script>
+
+<!-- PRIVACY PROTECTION OVERLAY START -->
+<style>
+    /* Reset & Font Setup for the Login Component */
+    .privacy-overlay * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Full screen backdrop blur and tint mask */
+    .privacy-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(10, 25, 47, 0.65); /* Dark subtle tint */
+        backdrop-filter: blur(15px); /* Blurs the website underlying content */
+        -webkit-backdrop-filter: blur(15px);
+        z-index: 999999; /* Ensures it stays strictly on top of all elements */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    /* Login Form Container Card */
+    .login-container {
+        background: #ffffff;
+        width: 100%;
+        max-width: 400px;
+        padding: 30px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border-top: 5px solid #d30000; /* Clean green accent bar at the top */
+        animation: fadeInUp 0.5s ease-out;
+    }
+
+    /* Security Branding Header */
+    .security-header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .security-header .icon {
+        font-size: 40px;
+        color: #a80000;
+        margin-bottom: 10px;
+    }
+
+    .security-header h2 {
+        margin: 0;
+        font-size: 22px;
+        color: #333333;
+        font-weight: 600;
+    }
+
+    .security-header p {
+        margin: 5px 0 0 0;
+        font-size: 13px;
+        color: #666666;
+    }
+
+    /* Table Structure Layout for Input Alignment */
+    .login-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .login-table td {
+        padding: 6px 0;
+        vertical-align: middle;
+    }
+
+    .login-table label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: #495057;
+        margin-bottom: 4px;
+    }
+
+    /* Input Fields Custom Design */
+    .login-input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 2px solid #ced4da;
+        border-radius: 8px;
+        font-size: 15px;
+        color: #495057;
+        background-color: #f8f9fa;
+        transition: all 0.3s ease;
+        outline: none;
+    }
+
+    .login-input:focus {
+        border-color: #02ba6a;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.15);
+    }
+
+    /* Alert Box for Authentication Failures */
+    .error-msg {
+        color: #dc3545;
+        font-size: 13px;
+        text-align: center;
+        margin-bottom: 15px;
+        display: none;
+        font-weight: 500;
+        background: #f8d7da;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #f5c6cb;
+    }
+
+    /* Submission Button */
+    .access-btn {
+        width: 100%;
+        padding: 14px;
+        background-color: #aa0606;
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+        box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+    }
+
+    .access-btn:hover {
+        background-color: #218838;
+    }
+
+    .access-btn:active {
+        transform: scale(0.98);
+    }
+
+    /* Dismissal State triggered via JavaScript */
+    .privacy-overlay.authenticated {
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+    }
+
+    /* Slide Up Entrance Keyframe Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Cross-Device Media Optimization query */
+    @media (max-width: 480px) {
+        .login-container {
+            padding: 24px 20px;
+        }
+        .security-header h2 {
+            font-size: 20px;
+        }
+    }
+</style>
+
+<div class="privacy-overlay" id="privacyOverlay">
+    <div class="login-container">
+        
+        <div class="security-header">
+            <div class="icon">🔒</div>
+            <h2>Privacy Protection</h2>
+            <p>Access restricted to authorized personnel only.</p>
+        </div>
+
+        <div class="error-msg" id="loginError">Invalid username or password!</div>
+
+        <!-- Table View Form Elements -->
+        <table class="login-table">
+            <tr>
+                <td><label for="username">Username/Callsign:</label></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="username" class="login-input" placeholder="Enter your username/callsign" autocomplete="off">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="password">Password:</label></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="password" id="password" class="login-input" placeholder="Enter your password">
+                </td>
+            </tr>
+        </table>
+
+        <button type="button" class="access-btn" id="accessBtn" onclick="validateAccess()">ACCESS WEBSITE</button>
+
+    </div>
+</div>
+
+<script>
+    // Local authorization database mapping multiple unique user credentials
+    const usersDatabase = {
+        "929-03": "aldrin1220", // User Profile 1
+        "929-01": "alpasan"  // User Profile 2
+    };
+
+    function validateAccess() {
+        const userInput = document.getElementById('username').value.trim();
+        const passInput = document.getElementById('password').value;
+        const errorDiv = document.getElementById('loginError');
+        const overlay = document.getElementById('privacyOverlay');
+
+        // Verify if client input structure cross-checks successfully with the credentials dictionary
+        if (usersDatabase[userInput] && usersDatabase[userInput] === passInput) {
+            errorDiv.style.display = 'none';
+            // Inject class structure to smoothly dim out and fade away the interface lock
+            overlay.classList.add('authenticated'); 
+        } else {
+            errorDiv.style.display = 'block';
+            // Refreshes structural animation behavior to draw client interaction error feedback
+            errorDiv.style.animation = 'none';
+            setTimeout(() => { errorDiv.style.animation = 'fadeInUp 0.3s ease'; }, 10);
+        }
+    }
+
+    // Key event tracking for ergonomic access execution on system password fields
+    document.getElementById('password').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            validateAccess();
+        }
+    });
+</script>
+<!-- PRIVACY PROTECTION OVERLAY END -->
 
 </body>
 </html>
