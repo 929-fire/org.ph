@@ -346,7 +346,7 @@
 
   <section class="rules-hero" id="rules">
     <h2>RULES & REGULATION</h2>
-    <p>Rules and Regulations of the 929 Fire and Rescue Volunteers — created to maintain discipline, unity, respect, responsibility, and proper coordination within the organization and group, ensuring professional and dedicated volunteer service to the community.</p>
+    <p>Rules and Regulations of the 929 Fire and Rescue Volunteers — created to maintain discipline, unity, respect, responsibility, and proper coordination within the group, ensuring professional and dedicated volunteer service to the community.</p>
   </section>
 
   <main class="rules-section">
@@ -516,8 +516,8 @@
         <div class="offense-card">
           <h3>First Offense: Verbal/Written</h3>
           <ul>
-            <li>Official letter warning issued by the 929 System Administration containing full facts and supporting evidence.</li>
-            <li>The member is required to submit a written explanation or verbal statement within fifteen (15) days.</li>
+            <li>Official letter warning (subpoena) issued by the 929 System Administration containing full facts and supporting evidence.</li>
+            <li>The member is required to submit a written explanation or verbal statement within fifteen (7) days.</li>
             <li>Failure to respond within the given period shall automatically elevate the case to the Second Offense.</li>
           </ul>
         </div>
@@ -587,8 +587,8 @@
         <a href="https://facebook.com/929Volunteers" class="fb-link">
           <img src="facebook.png" alt="FB"> 929 FIRE AND RESCUE VOLUNTEER
         </a>
-        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; All content is in the public domain unless otherwise stated.
-           <br> <br> All rights reserved TM, Inc. copyright @2026</p>
+        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2026 - 929 Fire & Rescue Volunteer, Radio Communication Group Inc.
+           <br> <br>"Save Lives and Properties"</p>
       </div>
     </div>
   </footer>
@@ -789,78 +789,5 @@
         }
     }
 </style>
-
-<div class="privacy-overlay" id="privacyOverlay">
-    <div class="login-container">
-        
-        <div class="security-header">
-            <div class="icon">🔒</div>
-            <h2>Privacy Protection</h2>
-            <p>Access restricted to authorized personnel only.</p>
-        </div>
-
-        <div class="error-msg" id="loginError">Invalid username or password!</div>
-
-        <!-- Table View Form Elements -->
-        <table class="login-table">
-            <tr>
-                <td><label for="username">Username/Callsign:</label></td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="text" id="username" class="login-input" placeholder="Enter your username/callsign" autocomplete="off">
-                </td>
-            </tr>
-            <tr>
-                <td><label for="password">Password:</label></td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="password" id="password" class="login-input" placeholder="Enter your password">
-                </td>
-            </tr>
-        </table>
-
-        <button type="button" class="access-btn" id="accessBtn" onclick="validateAccess()">ACCESS WEBSITE</button>
-
-    </div>
-</div>
-
-<script>
-    // Local authorization database mapping multiple unique user credentials
-    const usersDatabase = {
-        "929-03": "aldrin1220", // User Profile 1
-        "929-01": "alpasan"  // User Profile 2
-    };
-
-    function validateAccess() {
-        const userInput = document.getElementById('username').value.trim();
-        const passInput = document.getElementById('password').value;
-        const errorDiv = document.getElementById('loginError');
-        const overlay = document.getElementById('privacyOverlay');
-
-        // Verify if client input structure cross-checks successfully with the credentials dictionary
-        if (usersDatabase[userInput] && usersDatabase[userInput] === passInput) {
-            errorDiv.style.display = 'none';
-            // Inject class structure to smoothly dim out and fade away the interface lock
-            overlay.classList.add('authenticated'); 
-        } else {
-            errorDiv.style.display = 'block';
-            // Refreshes structural animation behavior to draw client interaction error feedback
-            errorDiv.style.animation = 'none';
-            setTimeout(() => { errorDiv.style.animation = 'fadeInUp 0.3s ease'; }, 10);
-        }
-    }
-
-    // Key event tracking for ergonomic access execution on system password fields
-    document.getElementById('password').addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            validateAccess();
-        }
-    });
-</script>
-<!-- PRIVACY PROTECTION OVERLAY END -->
-
 </body>
 </html>
