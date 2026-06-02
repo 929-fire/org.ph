@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Official List - 929 Fire and Rescue Volunteer</title>
+  <link rel="icon" type="image/png" href="929.png.png">
+  <link rel="apple-touch-icon" href="929.png.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-red: #ff2a2a;
+      --dark-red: #6d0000;
+      --bg-gradient: linear-gradient(135deg, #420000 0%, #1b0000 100%);
+      --card-bg: rgba(255, 255, 255, 0.07);
+      --glass-border: rgba(255, 255, 255, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      /* Background Image configuration */
+      background: rgba(0,0,0, 0.85) url('929.png'); 
+      background-blend-mode: darken;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: white;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- NAVIGATION --- */
+    .navbar {
+      width: 100%;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #800000;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+
+    .logo-area { display: flex; align-items: center; gap: 5px; }
+    .logo-area img { width: 50px; height: 50px; object-fit: contain; }
+    .logo-title h1 { font-size: 14px; font-weight: 800; letter-spacing: 0.9px; }
+    .logo-title span { font-size: 0.7rem; opacity: 0.8; display: block; text-transform: uppercase; }
+
+    .menu { display: flex; gap: 15px; }
+    .menu a {
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      transition: all 0.3s ease;
+    }
+    .menu a:hover, .menu a.active { background: var(--primary-red); transform: translateY(-2px); }
+
+    .menu-toggle { display: none; font-size: 28px; cursor: pointer; color: white; }
+
+    /* --- IFRAME FRAME WORKSPACE --- */
+    .frame-container {
+      flex: 1;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: transparent;
+    }
+
+    .responsive-frame {
+      width: 100%;
+      max-width: 1500px;
+      aspect-ratio: 9 / 16; /* Eksaktong 1080x1080 Square proportion */
+      border: 2px solid var(--primary-red);
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+      background: #000;
+    }
+
+    /* --- FOOTER --- */
+    .footer { background: #110000; padding: 60px 5% 30px; border-top: 2px solid var(--glass-border); }
+    .footer-bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+    .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+    .info-grid h4 { color: white; margin-bottom: 12px; font-size: 1.1rem; }
+    .info-grid p { font-size: 0.9rem; opacity: 0.8; }
+    .social-legal { border-left: 1px solid var(--glass-border); padding-left: 30px; }
+    .fb-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; font-weight: 700; margin-bottom: 20px; }
+    .fb-link img { width: 30px; }
+
+    /* --- RESPONSIVE ADJUSTMENTS --- */
+    @media (max-width: 768px) {
+      .navbar { padding: 10px 20px; }
+      .menu { 
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 70px; left: 0; width: 100%; 
+        background: #800000; 
+        padding: 20px; 
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      }
+      .menu.active { display: flex; }
+      .menu-toggle { display: block; }
+
+      .frame-container { padding: 10px; }
+      .footer-bottom-grid { grid-template-columns: 1fr; gap: 30px; }
+      .social-legal { border-left: none; border-top: 1px solid var(--glass-border); padding: 30px 0 0; }
+      .info-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1b0000; }
+    ::-webkit-scrollbar-thumb { background: var(--primary-red); border-radius: 10px; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo-area">
+      <img src="929.png.png" alt="929 Logo">
+      <div class="logo-title">
+        <h1>929 FIRE AND RESCUE VOLUNTEER</h1>
+        <span>Save Lives and Properties</span>
+      </div>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <div class="menu" id="navMenu">
+      <a href="https://929-fire.github.io/org.ph">HOME</a>
+      <a href="https://929-fire.github.io/org.ph/officer">OFFICERS</a>
+      <a href="https://929-fire.github.io/org.ph/rules">RULES & REGULATION</a>
+      <a href="https://929-fire.github.io/org.ph/about">ABOUT</a>
+    </div>
+  </nav>
+
+  <main class="frame-container">
+    <iframe 
+      src="https://929-fire.github.io/org.ph/drin_wx/list_index" 
+      class="responsive-frame" 
+      allowfullscreen 
+      loading="lazy">
+    </iframe>
+  </main>
+
+  <footer class="footer" id="about-footer">
+    <div class="footer-bottom-grid">
+      <div class="info-grid">
+        <div>
+          <h4>Our Mission</h4>
+          <p>To serve our community with the highest level of care, protection, and education by providing timely and efficient emergency response and proactive safety awareness.</p>
+        </div>
+        <div>
+          <h4>Our Vision</h4>
+          <p>To be a leading and trusted emergency service provider in the Philippines, driven by innovation, dedication, and excellence in public safety and education.</p>
+        </div>
+      </div>
+      <div class="social-legal">
+        <a href="https://facebook.com/929Volunteers" class="fb-link">
+          <img src="facebook.png" alt="FB"> 929 FIRE AND RESCUE VOLUNTEER
+        </a>
+        <p style="font-size: 0.8rem; opacity: 0.6;">&copy; All content is in the public domain unless otherwise stated.
+           <br> <br> All rights reserved TM, Inc. copyright @2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('navMenu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
