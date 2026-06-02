@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>929 Members & Officers List</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f4f6f9;color:#333}
+header{background:#d60000;color:#fff;padding:20px;text-align:center}
+.container{max-width:1400px;margin:auto;padding:15px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-bottom:15px}
+.stat{background:#fff;padding:20px;border-radius:15px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.stat span{display:block;color:#666;margin-bottom:8px}
+.stat h2{font-size:38px;color:#d60000}
+.active-box h2{color:#0a9b45}
+.card{background:#fff;padding:15px;border-radius:15px;box-shadow:0 3px 12px rgba(0,0,0,.08)}
+.search{width:100%;padding:12px;border:1px solid #ccc;border-radius:10px;margin-bottom:15px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:1000px}
+th{background:#d60000;color:#fff;padding:12px}
+td{padding:10px;border-bottom:1px solid #eee;text-align:center}
+.active{color:#0a9b45;font-weight:bold}
+.recall{color:#ff8800;font-weight:bold}
+.online{color:#0a9b45;font-weight:bold}
+.offline{color:#d60000;font-weight:bold}
+footer{text-align:center;padding:20px;color:#666}
+@media(max-width:768px){
+.stats{grid-template-columns:1fr}
+.stat h2{font-size:30px}
+}
+
+header h1{
+    font-size:clamp(28px, 5vw, 30px);
+}
+
+header p{
+    font-size: clamp(10px, 10vw, 14px);
+}
+
+</style>
+</head>
+<body>
+<header>
+<h1>929 OFFICIAL LIST</h1>
+<p>Last Update: 2:47 AM, 02/06/2026</p>
+</header>
+
+<div class="container">
+<div class="stats">
+<div class="stat">
+<span>Registered Members</span>
+<h2 id="totalMembers">0</h2>
+</div>
+
+<div class="stat active-box">
+<span>Active Members</span>
+<h2 id="activeMembers">0</h2>
+</div>
+</div>
+
+<div class="card">
+<input type="text" id="search" class="search" placeholder="Search name, callsign, reference ID...">
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Reference</th>
+<th>Callsign</th>
+<th>Position</th>
+<th>Full Name</th>
+<th>City</th>
+<th>Phone</th>
+<th>Status</th>
+<th>Online</th>
+</tr>
+</thead>
+<tbody id="tableBody">
+<tr><td colspan="9">Loading data...</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<footer>© 2026 929 Fire and Rescue Volunteer - Radio Communication Group Inc.</footer>
+
+<script>
+const JSON_URL="https://929-fire.github.io/org.ph/drin_wx/aip_list.json";
+let members=[];
+
+async function loadData(){
+try{
+const response=await fetch(JSON_URL);
+const json=await response.json();
+
+members=json.list.filter(item=>(
+item.reference_id &&
+item.callsign &&
+item.first_name &&
+item.first_name.trim()!==""
+));
+
+updateStats(members);
+renderTable(members);
+
+}catch(error){
+document.getElementById("tableBody").innerHTML='<tr><td colspan="9">Unable to load JSON data.</td></tr>';
+}
+}
+
+function updateStats(data){
+const activeCount=data.filter(item=>
+item.status && item.status.toLowerCase()==="active"
+).length;
+
+document.getElementById("totalMembers").textContent=data.length;
+document.getElementById("activeMembers").textContent=activeCount;
+}
+
+function renderTable(data){
+const tbody=document.getElementById("tableBody");
+tbody.innerHTML="";
+
+data.forEach((item,index)=>{
+const fullName=`${item.first_name||""} ${item.middle_name||""} ${item.last_name||""}`;
+
+tbody.innerHTML+=`
+<tr>
+<td>${index+1}</td>
+<td>${item.reference_id||""}</td>
+<td>${item.callsign||""}</td>
+<td>${item.position||""}</td>
+<td>${fullName}</td>
+<td>${item["city/municipality"]||""}</td>
+<td>${item.phone_number||""}</td>
+<td class="${item.status==="Active"?"active":"recall"}">${item.status||""}</td>
+<td class="${item.online==="Yes"?"online":"offline"}">${item.online||""}</td>
+</tr>`;
+});
+}
+
+document.getElementById("search").addEventListener("input",function(){
+const keyword=this.value.toLowerCase();
+
+const filtered=members.filter(item=>
+(item.reference_id||"").toLowerCase().includes(keyword)||
+(item.callsign||"").toLowerCase().includes(keyword)||
+(item.first_name||"").toLowerCase().includes(keyword)||
+(item.last_name||"").toLowerCase().includes(keyword)||
+(item["city/municipality"]||"").toLowerCase().includes(keyword)
+);
+
+renderTable(filtered);
+});
+
+loadData();
+</script>
+</body>
+</html>
